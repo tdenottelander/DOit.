@@ -21,6 +21,7 @@ var main = function () {
         }
     });
     
+    /*
     // create and hide our content as a div
     var $content = $("<div>Hello World!</div>").hide();
     var $moreContent = $("<div>Goodbye World!</div>").hide();
@@ -32,6 +33,18 @@ var main = function () {
     $("body").append($moreContent);
     // fade in the second content
     $moreContent.fadeIn();
+    */
+    
+    var addToDoFromInputBox = function(){
+        var $new_comment
+        if($(".addtask text") !== ""){
+            $new_comment = $("<p>").text($(".addtask text").value()).hide();
+            $(".List").append($new_comment);
+        
+        }
+    
+    }
+    
 }
 
 $(document).ready(main);
