@@ -1,6 +1,7 @@
 var main = function () {
     "use strict";
     
+    //Add ToDo item
     var addToDoItem = function(){
         var $new_Div;
         var $new_ToDo;
@@ -19,7 +20,11 @@ var main = function () {
             $new_ToDo = $(".todo-input input[title=textInput]").val() + " | ";
             $new_AlarmDate = $(".todo-input input[title=alarmInputDate]").val() + " ";
             $new_AlarmTime = $(".todo-input input[title=alarmInputTime]").val() + " | ";
-            $new_DeleteButton = $("<img/>").attr('src', 'Images/icon_delete.png').attr('alt', 'Delete icon');
+            $new_DeleteButton = $('<img id=deletebutton src="Images/icon_delete.png" />');
+            $new_DeleteButton.on("click", function(event){
+                $new_Div.remove();
+                
+            })
             
             $new_Div.append($new_Checkbox, $new_importance, $new_Date, $new_ToDo, $new_AlarmDate, $new_AlarmTime, $new_DeleteButton);
             $(".List1").append($new_Div);
@@ -27,20 +32,8 @@ var main = function () {
         }
     }
     
-    
-    var SortToDOItem = function(){
-        $(".List1").append($new_Div);
-        
-        $Div.append($new_importance);
-        
-    }
-    
     $(".todo-input button").on("click", function(event) {
        addToDoItem();
-    });
-    
-     $(".todo-sorter button").on("click", function(event) {
-        SortToDOItem();
     });
     
     $(".todo-input input").on("keypress", function (event) { 
@@ -49,16 +42,43 @@ var main = function () {
         }
     });
     
+    //Sort the ToDo items of a list
+    var SortToDOItem = function(){
+        $(".List1").append($new_Div);
+        $Div.append($new_importance);
+    }
+    
+         $(".todo-sorter button").on("click", function(event) {
+        SortToDOItem();
+    });
+    
+    //Add a new list (not yet implemented)
     var addList = function(){
         var $new_Div;
         var $new_List;
         
         $new_Div = $(HTMLDivElement()).addClass("List");
-        
-    
     }
     
+    $('#deletebutton').on("click", function(event) {
+        deleteToDo();
+    })
+    
     /*
+    var addToDoFromInputBox = function(){
+        var $new_comment
+        if($(".addToDo input") !== ""){
+            $new_comment = $("<p>").text($(".addToDo text").value()).hide();
+            $(".List1").append($new_comment);
+        }
+    }
+    
+    $(".addtask button").on("click", function(event) {
+        addToDoFromInputBox();
+    });
+    */
+    
+      /*
     // create and hide our content as a div
     var $content = $("<div>Hello World!</div>").hide();
     var $moreContent = $("<div>Goodbye World!</div>").hide();
@@ -71,18 +91,6 @@ var main = function () {
     // fade in the second content
     $moreContent.fadeIn();
     */
-    
-    var addToDoFromInputBox = function(){
-        var $new_comment
-        if($(".addToDo input") !== ""){
-            $new_comment = $("<p>").text($(".addToDo text").value()).hide();
-            $(".List1").append($new_comment);
-        }
-    }
-    
-    $(".addtask button").on("click", function(event) {
-        addToDoFromInputBox();
-    });
     
 }
 
