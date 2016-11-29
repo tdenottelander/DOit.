@@ -1,6 +1,30 @@
 var main = function () {
     "use strict";
     
+    //Variable that contains all lists
+    var lists = [];
+
+    //toDo constructor
+    function toDo(task, date, alarmDate, alarmTime, importance){
+        this.task = task
+        this.date = date;
+        this.alarmDate = alarmDate;
+        this.alarmTime = alarmTime;
+        this.importance = importance;
+    }
+    
+    //Make todo1 and todo2 and add it to list 1.
+    var toDo1 = new toDo("task", "date", "alarmdate", "alarmtime", "importance");
+    var toDo2 = new toDo("task", "date", "alarmdate", "alarmtime", "importance");
+    var list1 = [toDo1, toDo2];
+    lists.push(list1);
+    
+        //Add a new list
+    var addList = function(){
+        var newList = [];
+        lists.push(newList);
+    }
+  
     //Add ToDo item
     var addToDoItem = function(){
         var $new_Div;
@@ -10,7 +34,7 @@ var main = function () {
         var $new_AlarmDate;
         var $new_AlarmTime;
         var $new_DeleteButton;
-        var $new_importance
+        var $new_importance;
         if ($(".todo-input input").val() !== ""){
             //We still need to check if alarm is before date of ToDo.
             $new_Div = $("<div>").addClass("List");
@@ -25,6 +49,9 @@ var main = function () {
                 $new_Div.remove();
                 
             })
+            
+            var newToDo = new toDo($new_ToDo, $new_Date, $new_AlarmDate, $new_AlarmTime, $new_importance);
+            list1.push(newToDo);
             
             $new_Div.append($new_Checkbox, $new_importance, $new_Date, $new_ToDo, $new_AlarmDate, $new_AlarmTime, $new_DeleteButton);
             $(".List1").append($new_Div);
@@ -51,18 +78,6 @@ var main = function () {
          $(".todo-sorter button").on("click", function(event) {
         SortToDOItem();
     });
-    
-    //Add a new list (not yet implemented)
-    var addList = function(){
-        var $new_Div;
-        var $new_List;
-        
-        $new_Div = $(HTMLDivElement()).addClass("List");
-    }
-    
-    $('#deletebutton').on("click", function(event) {
-        deleteToDo();
-    })
     
     /*
     var addToDoFromInputBox = function(){
