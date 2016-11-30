@@ -59,16 +59,16 @@ var main = function () {
         }
     }
     
-    var ToString = function(){
-       // to string method for one todo in an array
-        var res;
-        var res = task.toString();
-        return res;
-     
-        
-        
-    }
-    
+//    var ToString = function(){
+//       // to string method for one todo in an array
+//        var res;
+//         res = "boot"
+//        return res;
+//     
+//        
+//        
+//    }
+//    
      
     function compare(a,b) {
         if (a.task < b.task)
@@ -77,27 +77,98 @@ var main = function () {
             return 1;
             return 0;
 }
+    
+    function compareOnImp(a,b) {
+        if (a.importance < b.importance)
+            return -1;
+        if (a.importance > b.importance)
+            return 1;
+            return 0;
+}
 
     var sort = function(){      
         var $new_Div;
         
         $new_Div = $("<div>").addClass("SL1"); 
-        var $new_title = $("<h4>").text("Sorted List");
+        var $new_title = $("<h4>").text("Sorted List On Task");
         $new_Div.append($new_title);
+         $(".sortedlist").append($new_Div);
     
         var x = list1.sort(compare);
         var arraylength = x.length;
         for (var i = 0; i < arraylength; i++){
-       
-            $new_Div.append(x[i].ToString());
+               $new_Div = $("<div>").addClass("SL1"); 
+          var  $new_Checkbox = $("<input type = checkbox>");
+          var  $new_importance = x[i].importance.toString();
+          var  $new_Date = " " + x[i].date.toString() + " | ";
+          var  $new_ToDo = x[i].task.toString();
+          var  $new_AlarmDate = x[i].alarmDate + " ";
+          var  $new_AlarmTime = x[i].alarmTime;
+          var  $new_DeleteButton = $('<img id=deletebutton src="Images/icon_delete.png" />');
+               
+                
+             $new_Div.append($new_Checkbox, $new_importance, $new_Date, $new_ToDo, $new_AlarmDate, $new_AlarmTime, $new_DeleteButton);
+             $new_DeleteButton.on("click", function(event){
+                $new_Div.remove();
+                
+            })
+            
+              $(".sortedlist").append($new_Div);
+            
             }
      
-        $(".sortedlist").append($new_Div);
+      
     
     }
-        
-        
     
+       var sortingOnImportance = function(){      
+        var $new_Div;
+        
+        $new_Div = $("<div>").addClass("SL1"); 
+        var $new_title = $("<h4>").text("Sorted List On Importance");
+        $new_Div.append($new_title);
+         $(".sortedImplist").append($new_Div);
+    
+        var x = list1.sort(compareOnImp);
+        var arraylength = x.length;
+        for (var i = 0; i < arraylength; i++){
+               $new_Div = $("<div>").addClass("SL1"); 
+          var  $new_Checkbox = $("<input type = checkbox>");
+          var  $new_importance = x[i].importance.toString() + " | ";
+          var  $new_Date = " " + x[i].date.toString() + " | ";
+          var  $new_ToDo = x[i].task.toString();
+          var  $new_AlarmDate = x[i].alarmDate + " ";
+          var  $new_AlarmTime = x[i].alarmTime + " | ";
+          var  $new_DeleteButton = $('<img id=deletebutton src="Images/icon_delete.png" />');
+                   $new_DeleteButton.on("click", function(event){
+                $new_Div.remove();
+                
+            })
+                
+             $new_Div.append($new_Checkbox, $new_importance, $new_Date, $new_ToDo, $new_AlarmDate, $new_AlarmTime, $new_DeleteButton);
+            
+              $(".sortedImplist").append($new_Div);
+            
+            }
+     
+      
+    
+    }
+
+      
+      
+
+    
+      $("#sorttest").on("click", function(event) {
+           if($(".sortertest select").val() == 1)
+              sort();
+          if($(".sortertest select").val() == 2)
+              sortingOnImportance();
+           
+    });
+    
+        
+   
     
     $(".todo-input button").on("click", function(event) {
        addToDoItem();
@@ -111,10 +182,7 @@ var main = function () {
     
   
     
-    $("#Sort").on("click", function(event) {
-           sort();
-    });
-    
+ 
     /*
     var addToDoFromInputBox = function(){
         var $new_comment
