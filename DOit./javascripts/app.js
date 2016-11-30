@@ -14,9 +14,9 @@ var main = function () {
     }
     
     //Make todo1 and todo2 and add it to list 1.
-    var toDo1 = new toDo("task", "date", "alarmdate", "alarmtime", "importance");
-    var toDo2 = new toDo("task", "date", "alarmdate", "alarmtime", "importance");
-    var list1 = [toDo1, toDo2];
+  //  var toDo1 = new toDo("task", "date", "alarmdate", "alarmtime", "importance");
+  //  var toDo2 = new toDo("task", "date", "alarmdate", "alarmtime", "importance");
+    var list1 = [];
     lists.push(list1);
     
         //Add a new list
@@ -59,6 +59,46 @@ var main = function () {
         }
     }
     
+    var ToString = function(){
+       // to string method for one todo in an array
+        var res;
+        var res = task.toString();
+        return res;
+     
+        
+        
+    }
+    
+     
+    function compare(a,b) {
+        if (a.task < b.task)
+            return -1;
+        if (a.task > b.task)
+            return 1;
+            return 0;
+}
+
+    var sort = function(){      
+        var $new_Div;
+        
+        $new_Div = $("<div>").addClass("SL1"); 
+        var $new_title = $("<h4>").text("Sorted List");
+        $new_Div.append($new_title);
+    
+        var x = list1.sort(compare);
+        var arraylength = x.length;
+        for (var i = 0; i < arraylength; i++){
+       
+            $new_Div.append(x[i].ToString());
+            }
+     
+        $(".sortedlist").append($new_Div);
+    
+    }
+        
+        
+    
+    
     $(".todo-input button").on("click", function(event) {
        addToDoItem();
     });
@@ -69,14 +109,10 @@ var main = function () {
         }
     });
     
-    //Sort the ToDo items of a list
-    var SortToDOItem = function(){
-        $(".List1").append($new_Div);
-        $Div.append($new_importance);
-    }
+  
     
-         $(".todo-sorter button").on("click", function(event) {
-        SortToDOItem();
+    $("#Sort").on("click", function(event) {
+           sort();
     });
     
     /*
