@@ -3,45 +3,39 @@
     <head>
     <meta charset="utf-8">
     
-    <title> DOit. Homepage </title>
+        <title> DOit. Homepage </title>
+        <link href="/stylesheets/main.css" rel="stylesheet" type="text/css">
     </head>
     
     <body>
-        <header>
-              <img src="Images/DOit_logo.png"
-             alt="Available for phone"
-             style="height:75px;">
-            
-        
-            <a href="/app.html">Log in</a>
-        
+        <header class="header">
+            <img src="Images/DOit_logo.png"
+             alt="DoIt Logo">
+            <a href="/app.html" class="logIn">Log in</a>
         </header>
         
         
-        <main>
-            <img src="Images/DOit_Mobile.png"
-             alt="Available for phone"
-             style="height:228px;">
-        
-        
-                <img src="Images/DOit_desktop.png"
-             alt="Available for phone"
-             style="height:228px;">
-        
-
-
-
-            <h2> Get productive! </h2>
-            <a href="/app.html">Click here to get started</a>
-        
-        
-            <div class="Features">
+        <main class="main">
+            <div class = "frontBox">
+                <div class = "actionText">
+                    <h2> Get productive! </h2>
+                    <a href="/app.html" class="getStarted">Click here to get started</a>
+                </div>
+                <div id="imageContainer">
+                    <img src="Images/DOit_desktop.png"
+                     alt="Available for phone" id="doitDesktop">
+                    <img src="Images/DOit_Mobile.png"
+                     alt="Available for phone" id="doitMobile">
+                </div>
+                
+            </div>
+            <div class="features" id="wrap">
             
-                <h2> Features </h2>
+               <!-- <h2> Features </h2>-->
             
             
 
-                <div class="Feature 1">
+                <div class="feature box">
                     <h3>ORGANIZEit.</h3>
                     <p> Put your tasks into organized lists and <br>
                         organize them according to <br>
@@ -50,21 +44,21 @@
                 </div>
 
 
-                <div class="Feature 2">
+                <div class="feature box">
                     <h3>REMEMBERit.</h3>
                     <p>Never forget your tasks with reminders <br>
                         for any tasks at any wished time!</p>
                 </div>
 
 
-                <div class="Feature 3">
+                <div class="feature box">
                     <h3>PRINTit.</h3>
                     <p>Print your lists to hang it on your refrigorator <br>
                         or above your bed!
                     </p>
                 </div>
                 
-                 <div class="Feature 4">
+                 <div class="feature box">
                     <h3>SHAREit.</h3>
                      <p> Share your tasks and lists with friends!
                      </p>

@@ -11,6 +11,7 @@ var main = function () {
         this.alarmDate = alarmDate;
         this.alarmTime = alarmTime;
         this.importance = importance;
+        this.checkedOff = false;
     }
     
     //Make todo1 and todo2 and add it to list 1.
@@ -23,6 +24,7 @@ var main = function () {
     var addList = function(){
         var newList = [];
         lists.push(newList);
+        window.alert(lists);
     }
   
     //Add ToDo item
@@ -46,10 +48,10 @@ var main = function () {
             new_Checkbox.on("click", function(event){
                 if(newToDo.checkedOff === true){
                     newToDo.checkedOff = false;
-                    window.alert(newToDo.task + "checkedoff set to false");
+                    //window.alert(newToDo.task + "checkedoff set to false");
                 } else if (newToDo.checkedOff === false){
                     newToDo.checkedOff = true;
-                    window.alert(newToDo.task + "checkoff set to true");
+                    //window.alert(newToDo.task + "checkoff set to true");
                     /*var achievementImage = $('<img id=achievementImage src="images/Snap.jpg" height=100/>');
                     $new_Div.append(achievementImage);
                     delay(function(){achievementImage.remove();}, 500);
