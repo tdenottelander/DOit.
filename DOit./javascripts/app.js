@@ -11,6 +11,8 @@ var main = function () {
         this.alarmDate = alarmDate;
         this.alarmTime = alarmTime;
         this.importance = importance;
+        this.checkedOff = false;
+        
     }
     
     //Make todo1 and todo2 and add it to list 1.
@@ -27,47 +29,65 @@ var main = function () {
   
     //Add ToDo item
     var addToDoItem = function(){
-        var $new_Div;
-        var $new_ToDo;
-        var $new_Checkbox;
-        var $new_Date;
-        var $new_AlarmDate;
-        var $new_AlarmTime;
-        var $new_DeleteButton;
-        var $new_importance;
         if ($(".todo-input input").val() !== ""){
             //We still need to check if alarm is before date of ToDo.
-            $new_Div = $("<div>").addClass("List");
-            $new_Checkbox = $("<input type = checkbox>");
-            $new_importance = $(".todo-input select").val() + " | ";
-            $new_Date = " " + $(".todo-input input[title=dateInput]").val() + " | ";
-            $new_ToDo = $(".todo-input input[title=textInput]").val() + " | ";
-            $new_AlarmDate = $(".todo-input input[title=alarmInputDate]").val() + " ";
-            $new_AlarmTime = $(".todo-input input[title=alarmInputTime]").val() + " | ";
-            $new_DeleteButton = $('<img id=deletebutton src="Images/icon_delete.png" />');
-            $new_DeleteButton.on("click", function(event){
-                $new_Div.remove();
-                
+            var task = $(".todo-input input[title=textInput]").val();
+            var date = $(".todo-input input[title=dateInput]").val();
+            var alarmDate = $(".todo-input input[title=alarmInputDate]").val();
+            var alarmTime = $(".todo-input input[title=alarmInputTime]").val();
+            var importance = $(".todo-input select").val();
+            
+            var new_Div = $("<div>").addClass("ToDo");
+            var new_Checkbox = $("<input type=checkbox>");
+            var new_deleteButton = $('<img id=deletebutton src="Images/icon_delete.png" />');
+            new_deleteButton.on("click", function(event){
+                new_Div.remove();
             })
             
-            var newToDo = new toDo($new_ToDo, $new_Date, $new_AlarmDate, $new_AlarmTime, $new_importance);
-            list1.push(newToDo);
-            
-            $new_Div.append($new_Checkbox, $new_importance, $new_Date, $new_ToDo, $new_AlarmDate, $new_AlarmTime, $new_DeleteButton);
-            $(".List1").append($new_Div);
+            var newToDo = new toDo(task, date, alarmDate, alarmTime, importance);
+            new_Checkbox.on("click", function(event){
+                if(newToDo.checkedOff === true){
+                    newToDo.checkedOff = false;
+                    window.alert(newToDo.task + "checkedoff set to false");
+                } else if (newToDo.checkedOff === false){
+                    newToDo.checkedOff = true;
+                    window.alert(newToDo.task + "checkoff set to true");
+                    /*var achievementImage = $('<img id=achievementImage src="images/Snap.jpg" height=100/>');
+                    $new_Div.append(achievementImage);
+                    delay(function(){achievementImage.remove();}, 500);
+                    */
+                }
+            })
+            var toDoString = ToDoToString(newToDo);
+            new_Div.append(new_Checkbox, toDoString, new_deleteButton);
+            list1.push(new_Div);
+            $(".List1").append(new_Div);
+                    
             $(".todo-input input").val("");
         }
     }
     
+    var ToDoToString = function(ToDo){
+        var new_importance = ToDo.importance + " | ";
+        var new_date = ToDo.date.toString() + " | ";
+        var new_task = ToDo.task + " | ";
+        var new_alarmDate = ToDo.alarmDate;
+        var new_alarmTime = ToDo.alarmTime + " | ";
+
+        var new_ToDo = new_importance + new_date + new_task + new_alarmDate + new_alarmTime;
+
+        return new_ToDo;
+    }
+    
+    /*
     var ToString = function(){
        // to string method for one todo in an array
         var res;
         var res = task.toString();
         return res;
-     
-        
         
     }
+    */
     
      
     function compare(a,b) {
