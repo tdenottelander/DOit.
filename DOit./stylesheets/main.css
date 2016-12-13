@@ -181,7 +181,8 @@ a.logIn:visited{
 
 .menu li{
     position: relative;
-    left: -10px;
+    left: -20px;
+    list-style-type: none;
 }
 
 #imageContainer {
@@ -238,11 +239,67 @@ h4 {
 
 .sortertest {
     display: inline;
+}
+
+.List {
+    margin: 10px;
+    position: relative;
+    background-color: white;
+    width: 90%;
+    padding: 10px;
+    border-radius: 20px;
+    padding-bottom: 20px;
+    padding-top: 1px;
+}
+
+
+
+.ToDoList li {
+    list-style-type: none;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    transition-duration: 0.5s;
+    position: relative;
+    left: -30px;
+}
+
+.ToDoList li:hover{
+    background-color: RGB(230, 230, 230);
     
 }
 
-.Lists {
-    margin: 10px;
+ul {
+    counter-reset: n;
 }
 
+.ToDoList li::before {
+    content: attr(data-priority) " | " attr(data-due) " | ";
+}
 
+.ToDoList li::after{
+    position: relative;
+    left: 10px;
+    content: url("../Images/icon_delete.png");
+}
+
+.sidebar li{
+    position: relative;
+    left: -10px;
+}
+
+ul li.checked {
+    text-decoration: line-through;
+}
+
+[data-priority="1"]{
+    color: black;
+}
+
+[data-priority="2"]{
+    color: gray;
+}
+
+[data-priority="3"]{
+    color: lightgray;
+}

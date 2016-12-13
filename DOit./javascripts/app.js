@@ -193,7 +193,10 @@ var main = function () {
         }
     });
     
-  
+    $(".ToDoList li").on("click", function(event) {
+        event.target.classList.toggle('checked');
+        
+    });
     
  
     
