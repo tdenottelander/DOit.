@@ -2,21 +2,27 @@ img:hover {
     cursor: pointer;
 }
 
-a:link{
-    color: rgb(10, 94, 123);
+.menu a:link{
+    color: dimgrey;
     text-decoration: none;
 }
 
-a:hover{
-    color:orange;
-    text-decoration: underline;
+.menu a:nth-child(1){
+
 }
 
-a:visited{
-    color:rgb(10, 94, 123);
+.menu a:hover{
+    color:white;
 }
 
-.header {
+.menu a:visited{
+    color:dimgrey;
+    
+}
+
+
+
+header {
     background-color: white;
     text-align: center;
     padding: 10px;
@@ -51,7 +57,7 @@ body{
     color: white;
 }
 
-.getStarted{
+.actionText a{
     color: steelblue;
     background-color: white;
     padding: 10px 15px;
@@ -61,10 +67,16 @@ body{
     border-radius: 10px;
     transition-duration: 0.1s;
     margin:5px;
+    text-decoration: none;
+    z-index: 1;
+}
+
+.actionText a:hover{
+    text-decoration: underline;
 }
 
 
-a.getStarted:visited{
+.actionText a:visited{
     color:rgb(10, 94, 123);
 }
 
@@ -79,10 +91,11 @@ a.getStarted:visited{
 
 a.logIn:link{
     color:white;
+    text-decoration: none;
 }
 
 a.logIn:hover{
-    color:white;
+    text-decoration: underline;
 }
 
 a.logIn:visited{
@@ -123,6 +136,7 @@ a.logIn:visited{
     position:absolute;
     top: 40%;
     left: 5%;
+    z-index: 1;
 }
 
 .box {
@@ -148,10 +162,87 @@ a.logIn:visited{
     
 }
 
+.menu{
+    background-color: lightgrey;
+    width: 20%;
+    left: 0%;
+    float: left;
+    height: 1000px;
+    
+}
 
+.menu h2{
+    position: relative;
+    left: 10px;
+    color: dimgrey;
+    font-size: 25px;
+    font-variant-caps: all-small-caps;
+}
+
+.menu li{
+    position: relative;
+    left: -10px;
+}
 
 #imageContainer {
     position: relative;
     overflow: hidden;
     height: inherit;
+    z-index: 0;
 }
+
+#imageContainer img{
+    
+    transition-duration: .5s;
+}
+
+#imageContainer img:hover{
+    transform:scale(1.05) translate(-10px);
+}
+
+.todo-input {
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    padding:10px;
+}
+
+
+.screen {
+    background-color: rgb(10, 94, 123);
+    position: absolute;
+    left: 20%;
+    width:80%;
+    padding: 10px;
+    height: 1000px;
+}
+
+.List1 {
+    position: relative;
+    background-color: white;
+    width: 30%;
+    padding: 10px;
+    border-radius: 20px;
+    padding-bottom: 20px;
+    padding-top: 1px;
+}
+
+h4 {
+    color: grey;
+    text-decoration: underline;
+    display: inline-flex;
+}
+
+.Lists select {
+}
+
+.sortertest {
+    display: inline;
+    
+}
+
+.Lists {
+    margin: 10px;
+}
+
+

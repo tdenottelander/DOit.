@@ -6,10 +6,13 @@
     </head>
 
     <body>
-        <header>
-            <a href="#"><img src="Images/DOit_logo.png"></a>
-            <a href="Splashscreen.html">Log out</a>
+        <header class="header">
+            <img src="Images/DOit_logo.png"
+             alt="DoIt Logo">
+            <a href="/app.html" class="logIn">Log out</a>
         </header>
+        
+        
         <main>
             <div class="menu">
                 <h2>Menu</h2>
@@ -25,151 +28,124 @@
                 </ul>
             </div>
             
-            <!--
-            <section class="addToDo">
-                <div class="addtask">
-                    <input type = text>
-                    <input type = date>
-                    <input type = date>
-                    <input type = time>
+            <div class="screen">
+                <section class="todo-input"> 
+                    <input type="text" title="textInput" placeholder="ToDo" required>
+                    <input type=date title ="dateInput">
+                    <input type=date title ="alarmInputDate">
+                    <input type=time title ="alarmInputTime">
+                    <select>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
                     <button>add</button>
-                    <p>+Add task</p>|
-                    <p>List</p>|
-                    <img src="Images/icon_calendar.png" alt = "Calendar icon">|
-                    <img src="Images/icon_alarm.png" alt = "Alarm icon">|                
-               </div>
-            </section>
-            -->
-            
-            <section class="todo-input"> 
-                <p>Add Your ToDo:</p> 
-                <input type="text" title="textInput">
-                <input type=date title ="dateInput">
-                <input type=date title ="alarmInputDate">
-                <input type=time title ="alarmInputTime">
-                <select>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
-                <button>add</button>
-            </section>
-            
-            
-                
-            
-            
-         <section class="Lists">
-            <section class="todo-sorter">
-                <section class="List1">
-                    <h4>List 1</h4>
-    
-                    
-                <section class="sortertest">
-                <select>
-                    <option value="1">Sort on Task name</option>
-                    <option value="2">sort on Importance</option>
-                </select> 
-                <button id="sorttest">Sort</button>
-            </section>
-        
-            
-                    
                 </section>
-                
-                <section class="sortedlist">
-                    
-                </section>
-                  </section>
-                
-                <section class="sortedImplist">
-                    
-                </section>
-            </section>
-        </section>
             
-            <section class = "Lists">
-            </section>
-            
-        <div class="Lists">
-            <h4>List 1</h4> 
+                <section class="Lists">
+                    <section class="todo-sorter">
+                        <section class="List1">
+                            <h4>List 1</h4>
 
-             
-                <section class="sortertest">
-                <select>
-                    <option value="1">Sort on Task name</option>
-                    <option value="2">sort on Importance</option>
-                </select> 
-                <button id="sorttest">Sort</button>
-            </section>
-        
-            
-            </section>
+
+                            <section class="sortertest">
+                                <select>
+                                    <option value="1">Name</option>
+                                    <option value="2">Importance</option>
+                                </select> 
+                                <button id="sorttest">Sort</button>
+                            </section>
+
+                            <section class="sortedlist">
+                            </section>
+                            <section class="sortedImplist">
+                            </section>
+                        </section>
+                    </section>
+                </section>
                 
-                <div class = "task">
-                    <img src= "Images/icon_checkbox.png" alt = "check off box">
-                    30/11
-                    Task
-                    <img src="Images/icon_alarm.png" alt="Alarm icon">
-                    <img src="Images/icon_delete.png" alt="Delete icon">
-                </div>
-                <div class = "task">
-                    <img src= "Images/icon_checkbox.png" alt = "check off box">
-                    30/11
-                    Task
-                    <img src="Images/icon_alarm.png" alt="Alarm icon">
-                    <img src="Images/icon_delete.png" alt="Delete icon">
-                </div>
-                <div class = "task">
-                    <img src= "Images/icon_checkbox.png" alt = "check off box">
-                    30/11
-                    Task
-                    <img src="Images/icon_alarm.png" alt="Alarm icon">
-                    <img src="Images/icon_delete.png" alt="Delete icon">
-                </div>
-                <div class = "task">
-                    <img src= "Images/icon_checkbox.png" alt = "check off box">
-                    30/11
-                    Task
-                    <img src="Images/icon_alarm.png" alt="Alarm icon">
-                    <img src="Images/icon_delete.png" alt="Delete icon">
-                </div>
+                <button>+ new list</button>
+
+
+            <!--
+                <div class="Lists">
+                    <h4>List 1</h4> 
+
+
+                        <section class="sortertest">
+                        <select>
+                            <option value="1">Sort on Task name</option>
+                            <option value="2">sort on Importance</option>
+                        </select> 
+                        <button id="sorttest">Sort</button>
+                    </section>
+
+                        <div class = "task">
+                            <img src= "Images/icon_checkbox.png" alt = "check off box">
+                            30/11
+                            Task
+                            <img src="Images/icon_alarm.png" alt="Alarm icon">
+                            <img src="Images/icon_delete.png" alt="Delete icon">
+                        </div>
+                        <div class = "task">
+                            <img src= "Images/icon_checkbox.png" alt = "check off box">
+                            30/11
+                            Task
+                            <img src="Images/icon_alarm.png" alt="Alarm icon">
+                            <img src="Images/icon_delete.png" alt="Delete icon">
+                        </div>
+                        <div class = "task">
+                            <img src= "Images/icon_checkbox.png" alt = "check off box">
+                            30/11
+                            Task
+                            <img src="Images/icon_alarm.png" alt="Alarm icon">
+                            <img src="Images/icon_delete.png" alt="Delete icon">
+                        </div>
+                        <div class = "task">
+                            <img src= "Images/icon_checkbox.png" alt = "check off box">
+                            30/11
+                            Task
+                            <img src="Images/icon_alarm.png" alt="Alarm icon">
+                            <img src="Images/icon_delete.png" alt="Delete icon">
+                        </div>
+                    </div>
+                -->
+
+                <!--
+                    <div class="List">
+                        <h4>List 2</h4> 
+
+                        <section class="todo-sorter">
+                        <select>
+                            <option value="1">Sort on Task name</option>
+                            <option value="2">sort on Importance</option>
+                        </select> 
+                        <button>Sort</button>
+                    </section>
+
+                        <div class = "task">
+                            <img src= "Images/icon_checkbox.png" alt = "check off box">
+                            30/11
+                            Task
+                            <img src="Images/icon_alarm.png" alt="Alarm icon">
+                            <img src="Images/icon_delete.png" alt="Delete icon">
+                        </div><div class = "task">
+                            <img src= "Images/icon_checkbox.png" alt = "check off box">
+                            30/11
+                            Task
+                            <img src="Images/icon_alarm.png" alt="Alarm icon">
+                            <img src="Images/icon_delete.png" alt="Delete icon">
+                        </div><div class = "task">
+                            <img src= "Images/icon_checkbox.png" alt = "check off box">
+                            30/11
+                            Task
+                            <img src="Images/icon_alarm.png" alt="Alarm icon">
+                            <img src="Images/icon_delete.png" alt="Delete icon">
+                        </div>
+                    </div>
+-->
+
             </div>
-            
-            <div class="List">
-                <h4>List 2</h4> 
-                
-                <section class="todo-sorter">
-                <select>
-                    <option value="1">Sort on Task name</option>
-                    <option value="2">sort on Importance</option>
-                </select> 
-                <button>Sort</button>
-            </section>
-                
-                <div class = "task">
-                    <img src= "Images/icon_checkbox.png" alt = "check off box">
-                    30/11
-                    Task
-                    <img src="Images/icon_alarm.png" alt="Alarm icon">
-                    <img src="Images/icon_delete.png" alt="Delete icon">
-                </div><div class = "task">
-                    <img src= "Images/icon_checkbox.png" alt = "check off box">
-                    30/11
-                    Task
-                    <img src="Images/icon_alarm.png" alt="Alarm icon">
-                    <img src="Images/icon_delete.png" alt="Delete icon">
-                </div><div class = "task">
-                    <img src= "Images/icon_checkbox.png" alt = "check off box">
-                    30/11
-                    Task
-                    <img src="Images/icon_alarm.png" alt="Alarm icon">
-                    <img src="Images/icon_delete.png" alt="Delete icon">
-                </div>
-            </div>
-    
-        <button>+ new list</button>
-            
         </main>
         <footer>
             
